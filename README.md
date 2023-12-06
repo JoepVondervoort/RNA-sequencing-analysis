@@ -1,6 +1,5 @@
 # RNA-sequencing-analysis
 RNA seq analyis for two feature count tables combined
-# RNA-Seq Analysis Toolkit (R Version)
 
 ## Overview
 
