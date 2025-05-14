@@ -47,14 +47,17 @@ A feature counts file with gene expression data
 A metadata file describing experimental conditions
 
 **Basic Execution**
+
 R# Set your input and output paths
 input_base_path <- "path/to/input/data"
 output_base_path <- "path/to/output/directory"
 
 **# Run the main analysis**
+
 source("scripts/rna_seq_analysis.R")
 Expected Output
 The pipeline generates a structured output directory with the following components:
+
 RNA_seq_analysis_YYYYMMDD/
 ├── results/                       # Raw DESeq2 results in CSV format
 ├── figures/
