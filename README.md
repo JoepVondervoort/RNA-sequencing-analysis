@@ -1,32 +1,79 @@
-# RNA-sequencing-analysis
-RNA seq analyis for two feature count tables combined
+# RNA-seq Analysis Pipeline
+Overview
+This repository contains an R-based computational pipeline for analyzing RNA sequencing (RNA-seq) data with a focus on differential gene expression analysis using DESeq2. The pipeline is designed for comprehensive analysis of RNA-seq data, particularly for studies examining the effects of small activating RNAs (saRNAs) on gene expression.
+The workflow includes quality control, differential expression analysis, visualization of results through various plots (MA plots, volcano plots, heatmaps, PCA), and functional enrichment analysis via Gene Ontology (GO) and KEGG pathways.
+Features
 
-## Overview
+Comprehensive RNA-seq Analysis: Complete workflow from count data to biological interpretation
+Differential Expression Analysis: Robust identification of differentially expressed genes using DESeq2
+Target Gene Analysis: Special focus on SCN1A gene expression changes
+Off-Target Effect Analysis: Identification and visualization of potential off-target effects from saRNAs
+Advanced Visualization: Publication-quality plots for MA, volcano, PCA, heatmaps, and expression profiles
+Functional Enrichment: GO term and KEGG pathway analysis with direction-specific enrichment (up/down-regulated)
+Structured Output: Organized directory structure with date-stamped results for reproducibility
+Detailed Reporting: Comprehensive analysis reports and statistics
 
-Welcome to the RNA-Seq Analysis Toolkit, a versatile R-based toolset for performing comprehensive RNA sequencing analysis on two separate feature count files. This toolkit utilizes DESEQ2 for differential gene expression analysis, generates Volcano plots to visualize significant gene changes, and conducts gene ontology analysis to gain insights into biological functions.
+Prerequisites
+R Packages Required:
+Core Analysis
+R# CRAN packages
+required_packages <- c("BiocManager", "readr", "dplyr", "ggplot2", "pheatmap", 
+                      "stringr", "RColorBrewer", "tibble", "ggrepel", "tidyr")
 
-## Features
+# Bioconductor packages
+bioc_packages <- c("DESeq2", "org.Hs.eg.db", "AnnotationDbi", "clusterProfiler", 
+                  "enrichplot", "DOSE", "pathview")
+Installation
+Clone this repository to your local machine:
+bashgit clone https://github.com/yourusername/rna-seq-analysis.git
+cd rna-seq-analysis
+Installing R Dependencies
+R# Install required CRAN packages
+for (pkg in c("BiocManager", "readr", "dplyr", "ggplot2", "pheatmap", 
+             "stringr", "RColorBrewer", "tibble", "ggrepel", "tidyr")) {
+  if (!requireNamespace(pkg, quietly = TRUE))
+    install.packages(pkg, repos = "https://cloud.r-project.org")
+}
 
-- **Differential Expression Analysis**: Utilizes DESEQ2, a powerful R package, to perform differential gene expression analysis on two feature count files, identifying genes that are significantly upregulated or downregulated.
+# Install Bioconductor packages
+BiocManager::install(c("DESeq2", "org.Hs.eg.db", "AnnotationDbi", 
+                     "clusterProfiler", "enrichplot", "DOSE", "pathview"))
+Usage
+Input Data Format
+The pipeline expects two primary input files:
 
-- **Interactive Volcano Plots**: Generate visually appealing Volcano plots that allow you to easily identify and visualize the most significant gene expression changes in your data.
+A feature counts file with gene expression data
+A metadata file describing experimental conditions
 
-- **Gene Ontology Analysis**: Gain deeper biological insights by conducting gene ontology analysis to uncover the enriched functional categories among differentially expressed genes.
+Basic Execution
+R# Set your input and output paths
+input_base_path <- "path/to/input/data"
+output_base_path <- "path/to/output/directory"
 
-## Getting Started
+# Run the main analysis
+source("scripts/rna_seq_analysis.R")
+Expected Output
+The pipeline generates a structured output directory with the following components:
+RNA_seq_analysis_YYYYMMDD/
+├── results/                       # Raw DESeq2 results in CSV format
+├── figures/
+│   ├── MA_plots/                  # MA plots for all comparisons
+│   ├── volcano_plots/             # Volcano plots for all comparisons
+│   ├── heatmaps/                  # Heatmaps and sample distance plots
+│   ├── PCA/                       # PCA plots
+│   ├── gene_ontology/             # GO and KEGG pathway analysis results
+│   └── SCN1A/                     # SCN1A-specific expression analysis
+└── debug_logs/                    # Detailed logs and debugging information
+Example
+A minimal working example:
+R# Example with included test data
+input_base_path <- "example/data"
+output_base_path <- "example/results"
+source("scripts/rna_seq_analysis.R")
+Customization
+The pipeline can be customized by modifying the following parameters:
 
-Follow these steps to get started with the RNA-Seq Analysis Toolkit:
-
-1. Clone this repository to your local machine.
-2. Ensure you have R and DESEQ2 installed on your system.
-3. Prepare your feature count files and place them in the designated input directory.
-4. Run the R script, providing the necessary input parameters.
-5. Explore the generated results, including DESEQ2 output, Volcano plots, and gene ontology analysis results.
-
-## Dependencies
-
-- R (with DESEQ2 installed)
-
----
-
-*Note: This README is a general template. Customize it to suit your specific project and provide more detailed instructions as needed.*
+Significance Thresholds: Adjust p-value and fold change thresholds
+GO Analysis Parameters: Modify GO term filtering criteria
+Visualization Settings: Customize plot aesthetics and dimensions
+Off-Target Gene Lists: Update potential off-target genes for each saRNA
