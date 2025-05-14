@@ -59,15 +59,24 @@ Expected Output
 The pipeline generates a structured output directory with the following components:
 
 RNA_seq_analysis_YYYYMMDD/
+
 ├── results/                       # Raw DESeq2 results in CSV format
+
 ├── figures/
 │   ├── MA_plots/                  # MA plots for all comparisons
+
 │   ├── volcano_plots/             # Volcano plots for all comparisons
+
 │   ├── heatmaps/                  # Heatmaps and sample distance plots
+
 │   ├── PCA/                       # PCA plots
+
 │   ├── gene_ontology/             # GO and KEGG pathway analysis results
+
 │   └── SCN1A/                     # SCN1A-specific expression analysis
+
 └── debug_logs/                    # Detailed logs and debugging information
+
 
 
 Example
