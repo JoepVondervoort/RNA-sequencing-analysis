@@ -63,6 +63,7 @@ RNA_seq_analysis_YYYYMMDD/
 ├── results/                       # Raw DESeq2 results in CSV format
 
 ├── figures/
+
 │   ├── MA_plots/                  # MA plots for all comparisons
 
 │   ├── volcano_plots/             # Volcano plots for all comparisons
