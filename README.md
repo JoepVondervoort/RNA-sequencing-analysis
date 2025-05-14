@@ -29,7 +29,7 @@ bioc_packages <- c("DESeq2", "org.Hs.eg.db", "AnnotationDbi", "clusterProfiler",
 
 Clone this repository to your local machine:
 
-bashgit clone https://github.com/yourusername/rna-seq-analysis.git
+bashgit clone https://github.com/JoepVondervoort/rna-seq-analysis.git
 
 cd rna-seq-analysis
 
