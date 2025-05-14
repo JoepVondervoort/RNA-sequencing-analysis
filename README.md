@@ -24,6 +24,7 @@ required_packages <- c("BiocManager", "readr", "dplyr", "ggplot2", "pheatmap",
 # Bioconductor packages
 bioc_packages <- c("DESeq2", "org.Hs.eg.db", "AnnotationDbi", "clusterProfiler", 
                   "enrichplot", "DOSE", "pathview")
+                  
 **Installation**
 
 Clone this repository to your local machine:
@@ -38,11 +39,14 @@ R# Install required CRAN packages
 
 for (pkg in c("BiocManager", "readr", "dplyr", "ggplot2", "pheatmap", 
              "stringr", "RColorBrewer", "tibble", "ggrepel", "tidyr")) {
+             
   if (!requireNamespace(pkg, quietly = TRUE))
     install.packages(pkg, repos = "https://cloud.r-project.org")
+    
 }
 
 # Install Bioconductor packages
+
 BiocManager::install(c("DESeq2", "org.Hs.eg.db", "AnnotationDbi", 
                      "clusterProfiler", "enrichplot", "DOSE", "pathview"))
 **Usage**
