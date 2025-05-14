@@ -3,7 +3,7 @@
 This repository contains an R-based computational pipeline for analyzing RNA sequencing (RNA-seq) data with a focus on differential gene expression analysis using DESeq2. The pipeline is designed for comprehensive analysis of RNA-seq data, particularly for studies examining the effects of small activating RNAs (saRNAs) on gene expression.
 The workflow includes quality control, differential expression analysis, visualization of results through various plots (MA plots, volcano plots, heatmaps, PCA), and functional enrichment analysis via Gene Ontology (GO) and KEGG pathways.
 
-#**Features**
+# **Features**
 
 Comprehensive RNA-seq Analysis: Complete workflow from count data to biological interpretation
 Differential Expression Analysis: Robust identification of differentially expressed genes using DESeq2
