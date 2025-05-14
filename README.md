@@ -90,7 +90,7 @@ RNA_seq_analysis_YYYYMMDD/
 
 
 
-Example
+# Example
 A minimal working example:
 R# Example with included test data
 input_base_path <- "example/data"
